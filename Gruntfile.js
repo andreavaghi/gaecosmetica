@@ -66,7 +66,7 @@ module.exports = function(grunt) {
                 }
             },
             css: {
-                files: ['css/*.css'],
+                files: ['css/*.less'],
                 tasks: ['less', 'build'],
                 options: {
                     spawn: false
