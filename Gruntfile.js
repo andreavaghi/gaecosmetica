@@ -6,6 +6,7 @@ module.exports = function(grunt) {
         concat: {
             dist: {
                 src: [
+                    'js/lib/jquery.js',
                     'js/lib/*.js',
                     'js/main.js'
                 ],
@@ -59,7 +60,7 @@ module.exports = function(grunt) {
         // automate and watch for file changes
         watch: {
             scripts: {
-                files: ['js/*.js'],
+                files: ['js/*.js', 'Gruntfile.js'],
                 tasks: ['concat', 'uglify'],
                 options: {
                     spawn: false
@@ -90,7 +91,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-html-build');
 
     // register named tasks to use in the CLI
-    grunt.registerTask('default', ['concat', 'uglify', 'less:development']);
-    grunt.registerTask('auto', ['concat', 'uglify', 'less:development', 'watch']);
+    grunt.registerTask('default', ['concat', 'uglify', 'less:development', 'htmlbuild']);
+    grunt.registerTask('auto', ['concat', 'uglify', 'less:development', 'htmlbuild', 'watch']);
     grunt.registerTask('build', ['htmlbuild']);
 }
