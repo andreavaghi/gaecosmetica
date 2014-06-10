@@ -26,17 +26,30 @@
 }
 
 /* colors */
+@white: #fff;
+@darker-white: #f8f8f8;
 @grey: #3f3e40;
+@lighter-grey: #e5e4e6;
+@darker-grey: #c7c6c7;
+@gold: #745c24;
+@diamante: #92b2c9;
+@couperose: #162b7e;
+@corpo: #235d37;
 
 body {
-	font: 18px/1.375 dinregular, sans-serif;
+	font: 14px/1.375 dinregular, sans-serif;
 	color: @grey;
 }
+
+span.gold { color: @gold; }
+span.diamante { color: @diamante; }
+span.couperose { color: @couperose; }
+span.corpo { color: @corpo; }
 
 nav {
 	.clearfix;
 	width: 100%;
-	background: #c2c2c2;
+	background: @darker-grey;
 	font-size: 16px;
 
 	ul {
@@ -46,18 +59,31 @@ nav {
 			a {
 				display: block;
 				padding: 10px;
-				color: #fff;
+				color: @white;
 				text-decoration: none;
+				&.active { color: @grey; }
 			}
 		}
 	}
 
 	&.second-level {
 		display: none;
-		background: #e2e2e2;
+		background: @lighter-grey;
 		height: 42px;
 
-		ul { display: none; }
+		ul {
+			display: none;
+			li {
+				a {
+					color: @darker-white;
+					&.active { color: @grey; }
+				}
+			}
+		}
+		&.active { 
+			display: block;
+			ul.active { display: block; }
+		}
 	}
 }
 
@@ -65,52 +91,106 @@ nav {
 	width: 100%;
 
 	h1.gae-logo {
-		width: 350px;
-		height: 230px;
-		background: url('images/logo-ombra.png') no-repeat center center;
+		width: 320px;
+		height: 226px;
+		background: url('images/logo-ombra-320.png') no-repeat center center;
 		position: absolute;
 		top: 70px;
 		left: 100px;
 		span { display: none; }
+		&.smaller {
+			width: 160px;
+			height: 113px;
+			background-size: cover;
+			left: 10%;
+			top: 100px;
+		}
 	}
 
 	.content {
 		position: absolute;
 		width: 45%;
-		top: 200px;
+		top: 230px;
 		left: 10%;
 
 		h2 {
 			text-transform: uppercase;
 			padding-bottom: 20px;
+			font-size: 18px;
+			&.subtitled { padding: 0; }
+		}
+		p {
+			padding-bottom: 10px;
+			a { color: @grey; }
+		}
+
+		&.big-font { font-size: 18px; }
+		&.smaller { width: 35%; }
+		&.darker { 
+			background: url('images/trasparenza.png');
+			padding: 2%;
+		}
+	}
+
+	.products-claim {
+		.clearfix;
+		position: relative;
+		width: 60%;
+		margin: 20px auto;
+		h1.gae-logo {
+			position: relative;
+			top: auto;
+			left: auto;
+			float: left;
+		}
+		p {
+			float: right;
+			width: 560px;
+			font-size: 15px;
+			background: url('images/trasparenza.png');
+			padding: 2%;
 		}
 	}
 
 	.products-list {
-		max-width: 1024px;
+		width: 60%;
 		padding: 0 2%;
-		margin: 40px auto 0;
+		margin: 40px 0 0 10%;
+		background: url('images/trasparenza.png');
+		padding: 2%;
+		.clearfix;
 		.product {
 			.clearfix;
+			width: 32%;
+			margin-right: 1%;
 			margin-bottom: 40px;
+			float: left;
 			.product-image {
-				width: 33%;
+				width: 100%;
 				margin-right: 2%;
-				float: left;
-				min-height: 200px;
+				min-height: 100px;
 				background: #e2e2e2;
 				border-radius: 5px;
 			}
 			.product-info {
-				width: 64%;
-				float: left;
+				width: 100%;
 				h2 {
-					margin-bottom: 20px;
+					margin: 10px 0;
+					text-transform: uppercase;
+					font-size: 18px;
 				}
 				p {
 					line-height: 1.375;
 				}
 			}
 		}
+		&.couperose {
+			width: 40%;
+			.product { width: 49%; }
+		}
+		&.gold .product .product-info h2 { color: @gold; }
+		&.diamante .product .product-info h2 { color: @diamante; }
+		&.couperose .product .product-info h2 { color: @couperose; }
+		&.corpo .product .product-info h2 { color: @corpo; }
 	}
 }

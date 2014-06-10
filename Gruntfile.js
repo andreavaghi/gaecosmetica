@@ -68,14 +68,7 @@ module.exports = function(grunt) {
             },
             css: {
                 files: ['css/*.less'],
-                tasks: ['less', 'build'],
-                options: {
-                    spawn: false
-                }
-            },
-            html: {
-                files: ['*.html', 'fixtures/layout/*.html', 'fixtures/pages/*.html'],
-                tasks: ['build'],
+                tasks: ['less'],
                 options: {
                     spawn: false
                 }
@@ -91,7 +84,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-html-build');
 
     // register named tasks to use in the CLI
-    grunt.registerTask('default', ['concat', 'uglify', 'less:development', 'htmlbuild']);
-    grunt.registerTask('auto', ['concat', 'uglify', 'less:development', 'htmlbuild', 'watch']);
+    grunt.registerTask('default', ['concat', 'uglify', 'less:development']);
+    grunt.registerTask('auto', ['concat', 'uglify', 'less:development', 'watch']);
     grunt.registerTask('build', ['htmlbuild']);
 }
