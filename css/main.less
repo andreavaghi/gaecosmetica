@@ -22,7 +22,7 @@ body {
 nav {
 	.clearfix;
 	width: 100%;
-	background: #e2e2e2;
+	background: #c2c2c2;
 
 	ul {
 		float: right;
@@ -36,10 +36,30 @@ nav {
 			}
 		}
 	}
+
+	&.second-level {
+		display: none;
+		background: #e2e2e2;
+		height: 39px;
+
+		ul { display: none; }
+	}
 }
 
 #main {
 	width: 100%;
+	position: relative;
+
+	h1.gae-logo {
+		width: 350px;
+		height: 230px;
+		background: url('images/logo-ombra.png') no-repeat center center;
+		position: absolute;
+		top: 30px;
+		left: 100px;
+		span { display: none; }
+	}
+
 	.products-list {
 		max-width: 1024px;
 		padding: 0 2%;
