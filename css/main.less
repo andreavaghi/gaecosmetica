@@ -1,4 +1,14 @@
-@import 'http://fonts.googleapis.com/css?family=Lato';
+@font-face {
+    font-family: 'dinregular';
+    src: url('fonts/ufonts.com_din-regular_1_-webfont.eot');
+    src: url('fonts/ufonts.com_din-regular_1_-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/ufonts.com_din-regular_1_-webfont.woff') format('woff'),
+         url('fonts/ufonts.com_din-regular_1_-webfont.ttf') format('truetype'),
+         url('fonts/ufonts.com_din-regular_1_-webfont.svg#dinregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 @import 'jquery.vegas.less';
 @import 'reset.less';
 
@@ -15,14 +25,19 @@
 	}
 }
 
+/* colors */
+@grey: #3f3e40;
+
 body {
-	font: 14px/1.375 Lato, sans-serif;
+	font: 18px/1.375 dinregular, sans-serif;
+	color: @grey;
 }
 
 nav {
 	.clearfix;
 	width: 100%;
 	background: #c2c2c2;
+	font-size: 16px;
 
 	ul {
 		float: right;
@@ -40,7 +55,7 @@ nav {
 	&.second-level {
 		display: none;
 		background: #e2e2e2;
-		height: 39px;
+		height: 42px;
 
 		ul { display: none; }
 	}
@@ -48,16 +63,27 @@ nav {
 
 #main {
 	width: 100%;
-	position: relative;
 
 	h1.gae-logo {
 		width: 350px;
 		height: 230px;
 		background: url('images/logo-ombra.png') no-repeat center center;
 		position: absolute;
-		top: 30px;
+		top: 70px;
 		left: 100px;
 		span { display: none; }
+	}
+
+	.content {
+		position: absolute;
+		width: 45%;
+		top: 200px;
+		left: 10%;
+
+		h2 {
+			text-transform: uppercase;
+			padding-bottom: 20px;
+		}
 	}
 
 	.products-list {
