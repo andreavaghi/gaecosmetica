@@ -31,6 +31,7 @@ Gae.Ui = (function() {
             e.preventDefault();
             var section = $(this).attr('data-section');
             $('nav.second-level').slideDown(500, function(){
+                $(this).find('ul').hide();
                 $(this).find('ul.' + section).show();
             });
         });
