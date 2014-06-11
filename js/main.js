@@ -9,6 +9,14 @@ Gae.Ui = (function() {
     	{ src: 'images/slider/05.jpg' }
     ];
 
+    var links = [
+        'openday-viso-fotoringiovanimento.html',
+        'openday-viso-micropigmentazione.html',
+        'openday-corpo.html',
+        'linea-gold.html',
+        'linea-diamante.html'
+    ];
+
     function init(imageList) {
         var setup = (imageList.length > 1) ? setupSlider(imageList) : setupBackground(imageList);
         secondLevelMenu();
@@ -18,6 +26,11 @@ Gae.Ui = (function() {
         $.vegas('slideshow', {
             backgrounds: imageList
         })();
+        $('body').bind('vegaswalk',
+            function(e, bg, step) {
+                $('a.more').attr('href', links[step]);
+            }
+        );
     }
 
     function setupBackground(imageList) {
